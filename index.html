@@ -592,12 +592,8 @@
                   <stop offset="0%" stop-color="#1a1a30"/>
                   <stop offset="100%" stop-color="#07070f"/>
                 </radialGradient>
-                <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="2.5" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-                <filter id="handGlow">
-                  <feGaussianBlur stdDeviation="1.5" result="blur"/>
+                <filter id="glowF" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
                   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
               </defs>
@@ -607,13 +603,13 @@
               <!-- Tick marks + numbers built by JS -->
               <g id="ticks"></g>
               <g id="hourNums"></g>
-              <!-- Hands -->
-              <line id="hHand" x1="135" y1="135" x2="135" y2="72" stroke="rgba(255,255,255,0.95)" stroke-width="5" stroke-linecap="round" filter="url(#handGlow)"/>
-              <line id="mHand" x1="135" y1="135" x2="135" y2="48" stroke="rgba(255,255,255,0.85)" stroke-width="3.5" stroke-linecap="round" filter="url(#handGlow)"/>
-              <line id="sHand" x1="135" y1="152" x2="135" y2="34" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" filter="url(#glowF)"/>
+              <!-- Hands — no filter to avoid clipping after rotation -->
+              <line id="hHand" x1="135" y1="140" x2="135" y2="72" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              <line id="mHand" x1="135" y1="145" x2="135" y2="48" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <line id="sHand" x1="135" y1="155" x2="135" y2="34" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
               <!-- Center pin -->
               <circle cx="135" cy="135" r="6" fill="#00d4ff" filter="url(#glowF)"/>
-              <circle cx="135" cy="135" r="3" fill="white"/>
+              <circle cx="135" cy="135" r="2.5" fill="white"/>
             </svg>
           </div>
         </div>
