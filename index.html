@@ -608,9 +608,9 @@
               <g id="ticks"></g>
               <g id="hourNums"></g>
               <!-- Hands -->
-              <line id="hHand" x1="135" y1="135" x2="135" y2="72" stroke="rgba(255,255,255,0.95)" stroke-width="5" stroke-linecap="round" style="transform-origin:135px 135px" filter="url(#handGlow)"/>
-              <line id="mHand" x1="135" y1="135" x2="135" y2="48" stroke="rgba(255,255,255,0.85)" stroke-width="3.5" stroke-linecap="round" style="transform-origin:135px 135px" filter="url(#handGlow)"/>
-              <line id="sHand" x1="135" y1="152" x2="135" y2="34" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" style="transform-origin:135px 135px" filter="url(#glowF)"/>
+              <line id="hHand" x1="135" y1="135" x2="135" y2="72" stroke="rgba(255,255,255,0.95)" stroke-width="5" stroke-linecap="round" filter="url(#handGlow)"/>
+              <line id="mHand" x1="135" y1="135" x2="135" y2="48" stroke="rgba(255,255,255,0.85)" stroke-width="3.5" stroke-linecap="round" filter="url(#handGlow)"/>
+              <line id="sHand" x1="135" y1="152" x2="135" y2="34" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" filter="url(#glowF)"/>
               <!-- Center pin -->
               <circle cx="135" cy="135" r="6" fill="#00d4ff" filter="url(#glowF)"/>
               <circle cx="135" cy="135" r="3" fill="white"/>
@@ -779,9 +779,9 @@ function updateClock() {
   const sDeg = (s + ms / 1000) * 6;
   const mDeg = m * 6 + (s + ms / 1000) * 0.1;
   const hDeg = (h % 12) * 30 + m * 0.5;
-  document.getElementById('sHand').style.transform = `rotate(${sDeg}deg)`;
-  document.getElementById('mHand').style.transform = `rotate(${mDeg}deg)`;
-  document.getElementById('hHand').style.transform = `rotate(${hDeg}deg)`;
+  document.getElementById('sHand').setAttribute('transform', `rotate(${sDeg} 135 135)`);
+  document.getElementById('mHand').setAttribute('transform', `rotate(${mDeg} 135 135)`);
+  document.getElementById('hHand').setAttribute('transform', `rotate(${hDeg} 135 135)`);
 
   // Digital
   const h12 = h % 12 || 12;
